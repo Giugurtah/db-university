@@ -1,3 +1,4 @@
+--* USANDO SELECT
 -- Selezionare tutti gli studenti nati nel 1990
 SELECT * 
 FROM `students` 
@@ -36,3 +37,10 @@ FROM `departments`;
 SELECT COUNT(*) 
 FROM `teachers`
 WHERE `phone` IS NULL;
+
+--* USANDO GROUP BY
+-- Contare quanti iscritti ci sono stati ogni anno
+SELECT COUNT(*), YEAR(`enrolment_date`) AS `enrolment_year` 
+FROM `students`
+GROUP BY `enrolment_year`;
+

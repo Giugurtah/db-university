@@ -12,3 +12,8 @@ WHERE `cfu` > 10;
 SELECT * 
 FROM `students` 
 WHERE `date_of_birth` < "1981-09-28";
+
+-- Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea 
+SELECT * 
+FROM `courses`
+WHERE `year` = 1 AND `period` = "I semestre";

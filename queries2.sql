@@ -34,3 +34,18 @@ ON `degrees`.`id` = `students`.`degree_id`
 INNER JOIN `departments`
 ON `departments`.`id` = `degrees`.`department_id`
 ORDER BY `students`.`surname`, `students`.`name`
+
+-- Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+SELECT 
+`D`.`name` AS `degree_name`, 
+`C`.`name` AS `course_name`, 
+`T`.`name` AS `teacher_name`, 
+`T`.`surname` AS `teacher_surname`
+FROM `course_teacher` `CT`
+INNER JOIN `courses` `C`
+ON `C`.`id` = `CT`.`course_id`
+INNER JOIN `teachers` `T`
+ON `T`.`id` = `CT`.`teacher_id`
+INNER JOIN `degrees` `D`
+ON `D`.`id` = `C`.`degree_id`
+ORDER BY `D`.`name`
